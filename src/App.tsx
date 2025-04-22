@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import Analytics from "./pages/Analytics";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
+import Transactions from "./pages/Transactions";
+import Reports from "./pages/Reports";
 import Profile from "./pages/Profile";
 import PlaceholderPage from "./pages/PlaceholderPage";
 
@@ -27,8 +29,8 @@ const App = () => {
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/products" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
-            <Route path="/transactions" element={<PlaceholderPage title="Transactions" />} />
-            <Route path="/reports" element={<PlaceholderPage title="Reports" />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
             <Route path="/messages" element={<PlaceholderPage title="Messages" />} />
             <Route path="/support" element={<PlaceholderPage title="Help & Support" />} />
