@@ -1,14 +1,79 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import Layout from "@/components/layout/Layout";
+import KpiCard from "@/components/dashboard/KpiCard";
+import Sparkline from "@/components/dashboard/Sparkline";
+import TimeSeriesChart from "@/components/dashboard/TimeSeriesChart";
+import LineChart from "@/components/dashboard/LineChart";
+import BarChart from "@/components/dashboard/BarChart";
+import ProductTable from "@/components/dashboard/ProductTable";
+import { kpiData, salesData, returnsData, productsData } from "@/data/mockData";
+
+export default function Index() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <Layout>
+      {/* KPI Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <KpiCard
+          title="Today's Revenue"
+          value={kpiData.revenue.value}
+          change={kpiData.revenue.change}
+          sparkline={
+            <Sparkline
+              data={kpiData.revenue.sparklineData}
+              color="#92FE9D"
+              width={80}
+              height={40}
+            />
+          }
+        />
+        <KpiCard
+          title="Today's Orders"
+          value={kpiData.orders.value}
+          change={kpiData.orders.change}
+          sparkline={
+            <Sparkline
+              data={kpiData.orders.sparklineData}
+              color="#EF4444"
+              width={80}
+              height={40}
+            />
+          }
+        />
+        <KpiCard
+          title="Today's Visitors"
+          value={kpiData.visitors.value}
+          change={kpiData.visitors.change}
+          sparkline={
+            <Sparkline
+              data={kpiData.visitors.sparklineData}
+              color="#92FE9D"
+              width={80}
+              height={40}
+            />
+          }
+        />
       </div>
-    </div>
-  );
-};
 
-export default Index;
+      {/* Analytics and Returns */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <div className="lg:col-span-2">
+          <TimeSeriesChart
+            title="Sales Analytics"
+            defaultFilter="Yearly"
+            chart={<LineChart data={salesData} />}
+          />
+        </div>
+        <div>
+          <TimeSeriesChart
+            title="Returns"
+            filters={[]}
+            chart={<BarChart data={returnsData} highlightIndex={3} unit="%" />}
+          />
+        </div>
+      </div>
+      
+      {/* Products Table */}
+      <ProductTable products={productsData} />
+    </Layout>
+  );
+}
