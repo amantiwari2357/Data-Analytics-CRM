@@ -13,7 +13,6 @@ import {
   CreditCard
 } from "lucide-react";
 
-// Logo component
 const Logo = () => (
   <div className="flex items-center gap-2 px-4 py-6">
     <div className="text-white flex items-center gap-2">
@@ -35,7 +34,6 @@ interface SidebarItemProps {
   active?: boolean;
 }
 
-// Sidebar item component
 const SidebarItem = ({ icon, label, to, badge, active }: SidebarItemProps) => (
   <Link 
     to={to} 
@@ -54,17 +52,14 @@ const SidebarItem = ({ icon, label, to, badge, active }: SidebarItemProps) => (
   </Link>
 );
 
-// Sidebar component
 export default function Sidebar() {
   const location = useLocation();
   const currentPath = location.pathname;
 
   return (
     <aside className="w-60 bg-sidebar h-screen flex flex-col border-r border-r-border/40">
-      {/* Logo */}
       <Logo />
 
-      {/* Menu section */}
       <div className="mt-2 px-4">
         <div className="text-xs font-medium text-muted-foreground mb-3">MENU</div>
         <nav className="space-y-1">
@@ -107,7 +102,6 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      {/* Others section */}
       <div className="mt-8 px-4">
         <div className="text-xs font-medium text-muted-foreground mb-3">OTHERS</div>
         <nav className="space-y-1">
@@ -133,22 +127,23 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      {/* Profile */}
       <div className="mt-auto p-4">
-        <div className="bg-sidebar-accent rounded-md p-3 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-r from-[#92FE9D] to-[#00C9FF]">
-            <img 
-              src="https://ui-avatars.com/api/?name=Kabir+Singh&background=random" 
-              alt="Profile" 
-              className="w-full h-full object-cover"
-            />
+        <Link to="/profile">
+          <div className="bg-sidebar-accent rounded-md p-3 flex items-center gap-3 hover:bg-sidebar-accent/80 transition-colors">
+            <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-r from-[#92FE9D] to-[#00C9FF]">
+              <img 
+                src="https://ui-avatars.com/api/?name=Kabir+Singh&background=random" 
+                alt="Profile" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-medium">Kabir Singh</div>
+              <div className="text-xs text-muted-foreground truncate">View Profile</div>
+            </div>
+            <ChevronRight className="w-4 h-4 text-muted-foreground" />
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="text-sm font-medium">Kabir Singh</div>
-            <div className="text-xs text-muted-foreground truncate">View Profile</div>
-          </div>
-          <ChevronRight className="w-4 h-4 text-muted-foreground" />
-        </div>
+        </Link>
       </div>
     </aside>
   );
