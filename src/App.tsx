@@ -15,28 +15,30 @@ import PlaceholderPage from "./pages/PlaceholderPage";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/transactions" element={<PlaceholderPage title="Transactions" />} />
-          <Route path="/reports" element={<PlaceholderPage title="Reports" />} />
-          <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
-          <Route path="/messages" element={<PlaceholderPage title="Messages" />} />
-          <Route path="/support" element={<PlaceholderPage title="Help & Support" />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/transactions" element={<PlaceholderPage title="Transactions" />} />
+            <Route path="/reports" element={<PlaceholderPage title="Reports" />} />
+            <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
+            <Route path="/messages" element={<PlaceholderPage title="Messages" />} />
+            <Route path="/support" element={<PlaceholderPage title="Help & Support" />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </TooltipProvider>
       </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </QueryClientProvider>
+  );
+};
 
 export default App;
