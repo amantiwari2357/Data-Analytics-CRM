@@ -56,18 +56,30 @@ export default function Index() {
 
       {/* Analytics and Returns */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 bg-card rounded-lg border p-6">
           <TimeSeriesChart
-            title="Sales Analytics"
-            defaultFilter="Yearly"
-            chart={<LineChart data={salesData} />}
+            title="Sales Performance"
+            defaultFilter="Weekly"
+            chart={
+              <LineChart 
+                data={salesData} 
+                color="#8B5CF6" 
+              />
+            }
           />
         </div>
-        <div>
+        <div className="bg-card rounded-lg border p-6">
           <TimeSeriesChart
-            title="Returns"
-            filters={[]}
-            chart={<BarChart data={returnsData} highlightIndex={3} unit="%" />}
+            title="Returns Rate"
+            filters={["Weekly", "Monthly"]}
+            defaultFilter="Weekly"
+            chart={
+              <BarChart 
+                data={returnsData} 
+                highlightIndex={3} 
+                unit="%" 
+              />
+            }
           />
         </div>
       </div>

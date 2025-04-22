@@ -1,4 +1,3 @@
-
 // Mock data for the CRM dashboard
 
 // KPI data
@@ -29,20 +28,20 @@ export const kpiData = {
   }
 };
 
-// Sales analytics data
+// Sales analytics data with more detailed information
 export const salesData = [
-  { month: "Jan", value: 75 },
-  { month: "Feb", value: 42 },
-  { month: "Mar", value: 60 },
-  { month: "Apr", value: 100 },
-  { month: "May", value: 80 },
-  { month: "Jun", value: 70 },
-  { month: "Jul", value: 60 },
-  { month: "Aug", value: 120 },
-  { month: "Sep", value: 90 },
-  { month: "Oct", value: 80 },
-  { month: "Nov", value: 110 },
-  { month: "Dec", value: 150 }
+  { month: "Jan", value: 75000, target: 70000 },
+  { month: "Feb", value: 42000, target: 45000 },
+  { month: "Mar", value: 60000, target: 55000 },
+  { month: "Apr", value: 100000, target: 85000 },
+  { month: "May", value: 80000, target: 75000 },
+  { month: "Jun", value: 70000, target: 65000 },
+  { month: "Jul", value: 60000, target: 70000 },
+  { month: "Aug", value: 120000, target: 100000 },
+  { month: "Sep", value: 90000, target: 85000 },
+  { month: "Oct", value: 80000, target: 75000 },
+  { month: "Nov", value: 110000, target: 95000 },
+  { month: "Dec", value: 150000, target: 120000 }
 ];
 
 // Returns data
