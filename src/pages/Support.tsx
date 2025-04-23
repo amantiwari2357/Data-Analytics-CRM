@@ -5,8 +5,11 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, LifeBuoy, Mail } from "lucide-react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { useNavigate } from "react-router-dom";
 
 export default function Support() {
+  const navigate = useNavigate();
+
   return (
     <Layout>
       <div className="space-y-6">
@@ -58,12 +61,20 @@ export default function Support() {
               </p>
               
               <div className="space-y-4">
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => navigate("/email-support")}
+                >
                   <Mail className="mr-2 h-4 w-4" />
                   Email Support
                 </Button>
                 
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => navigate("/live-chat")}
+                >
                   <LifeBuoy className="mr-2 h-4 w-4" />
                   Live Chat
                 </Button>

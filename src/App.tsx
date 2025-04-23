@@ -14,10 +14,11 @@ import Orders from "./pages/Orders";
 import Transactions from "./pages/Transactions";
 import Reports from "./pages/Reports";
 import Profile from "./pages/Profile";
-import PlaceholderPage from "./pages/PlaceholderPage";
 import Settings from "./pages/Settings";
 import Messages from "./pages/Messages";
 import Support from "./pages/Support";
+import LiveChat from "./pages/LiveChat";
+import EmailSupport from "./pages/EmailSupport";
 
 const App = () => {
   // Create a client inside the component to ensure it's created in the React component lifecycle
@@ -39,6 +40,8 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/live-chat" element={<LiveChat />} />
+            <Route path="/email-support" element={<EmailSupport />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
