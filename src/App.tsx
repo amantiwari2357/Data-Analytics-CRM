@@ -15,6 +15,7 @@ import Profile from "./pages/Profile";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import Settings from "./pages/Settings";
 import Messages from "./pages/Messages";
+import Support from "./pages/Support";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +35,7 @@ const App = () => {
             <Route path="/reports" element={<Reports />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/messages" element={<Messages />} />
-            <Route path="/support" element={<PlaceholderPage title="Help & Support" />} />
+            <Route path="/support" element={<Support />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

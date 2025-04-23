@@ -12,7 +12,7 @@ export default function Support() {
       <div className="space-y-6">
         <div className="flex items-center gap-2">
           <LifeBuoy className="h-6 w-6" />
-          <h1 className="text-2xl font-bold gradient-text">Help & Support</h1>
+          <h1 className="text-2xl font-bold gradient-text">Help &amp; Support</h1>
         </div>
 
         <Alert>
