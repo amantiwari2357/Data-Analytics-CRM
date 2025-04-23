@@ -1,7 +1,23 @@
 
-import { Bell, Search } from "lucide-react";
+import { Bell, Search, User, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    navigate("/login");
+  };
+
   return (
     <div className="border-b border-border/40 px-6 py-4 flex items-center justify-between">
       <h1 className="text-2xl font-semibold gradient-text">Dashboard Overview</h1>
@@ -20,10 +36,34 @@ export default function Navbar() {
         </div>
         
         {/* Notifications */}
-        <button className="relative bg-secondary/50 p-2 rounded-lg hover:bg-secondary transition-colors">
+        <Button variant="ghost" size="icon" className="relative">
           <Bell className="h-5 w-5" />
           <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full" />
-        </button>
+        </Button>
+
+        {/* Profile Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
+              <img 
+                src="https://ui-avatars.com/api/?name=Kabir+Singh&background=random" 
+                alt="Profile"
+                className="rounded-full"
+              />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-48">
+            <DropdownMenuItem onClick={() => navigate("/profile")}>
+              <User className="mr-2 h-4 w-4" />
+              <span>Profile</span>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleLogout}>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   );
