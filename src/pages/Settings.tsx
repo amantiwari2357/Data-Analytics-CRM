@@ -3,9 +3,26 @@ import Layout from "@/components/layout/Layout";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Settings } from "lucide-react";
+import { Settings, Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function SettingsPage() {
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.documentElement.classList.contains("dark")
+  );
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   return (
     <Layout>
       <div className="space-y-6">
@@ -50,7 +67,7 @@ export default function SettingsPage() {
                     Toggle dark mode theme
                   </p>
                 </div>
-                <Switch />
+                <Switch checked={isDarkMode} onCheckedChange={toggleDarkMode} />
               </div>
               
               <div className="flex items-center justify-between">
