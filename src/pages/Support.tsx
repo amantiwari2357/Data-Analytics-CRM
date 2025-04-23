@@ -30,14 +30,14 @@ export default function Support() {
               <div>
                 <h3 className="font-medium mb-2">How do I reset my password?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Click on the "Forgot Password" link on the login page and follow the instructions sent to your email.
+                  Click on the &quot;Forgot Password&quot; link on the login page and follow the instructions sent to your email.
                 </p>
               </div>
               <Separator />
               <div>
                 <h3 className="font-medium mb-2">How do I update my profile?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Go to Settings > Profile and click on the Edit Profile button to update your information.
+                  Go to Settings &gt; Profile and click on the Edit Profile button to update your information.
                 </p>
               </div>
               <Separator />
@@ -54,7 +54,7 @@ export default function Support() {
             <h2 className="text-lg font-semibold mb-4">Contact Support</h2>
             <div className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                Can't find what you're looking for? Our support team is ready to assist you.
+                Can&apos;t find what you&apos;re looking for? Our support team is ready to assist you.
               </p>
               
               <div className="space-y-4">
